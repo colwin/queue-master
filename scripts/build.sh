@@ -4,15 +4,15 @@ set -ev
 
 SCRIPT_DIR=$(dirname "$0")
 
-if [[ -z "$GROUP" ]] ; then
-    echo "Cannot find GROUP env var"
-    exit 1
-fi
+# if [[ -z "$GROUP" ]] ; then
+#     echo "Cannot find GROUP env var"
+#     exit 1
+# fi
 
-if [[ -z "$COMMIT" ]] ; then
-    echo "Cannot find COMMIT env var"
-    exit 1
-fi
+# if [[ -z "$COMMIT" ]] ; then
+#     echo "Cannot find COMMIT env var"
+#     exit 1
+# fi
 
 if [[ "$(uname)" == "Darwin" ]]; then
     DOCKER_CMD=docker
@@ -25,7 +25,7 @@ $DOCKER_CMD run --rm -v $HOME/.m2:/root/.m2 -v $CODE_DIR:/usr/src/mymaven -w /us
 
 cp $CODE_DIR/target/*.jar $CODE_DIR/docker/$(basename $CODE_DIR)
 
-for m in ./docker/*/; do
-    REPO=${GROUP}/$(basename $m)
-    $DOCKER_CMD build -t ${REPO}:${COMMIT} $CODE_DIR/$m;
-done;
+# for m in ./docker/*/; do
+#     REPO=${GROUP}/$(basename $m)
+#     $DOCKER_CMD build -t ${REPO}:${COMMIT} $CODE_DIR/$m;
+# done;
