@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 COPY queue-master.jar ./app.jar
 COPY dd-java-agent.jar ./
 
-ENTRYPOINT ["/usr/local/bin/java.sh", "-javaagent", "./dd-agent.jar", "-jar","./app.jar", "--port=80"]
+ENTRYPOINT ["/usr/local/bin/java.sh", "-jar","./app.jar", "--port=80"]
